@@ -1,5 +1,4 @@
 import * as React from "react"
-
 import * as DialogPrimitive from "@radix-ui/react-dialog"
 import { X } from "lucide-react"
 
@@ -82,5 +81,14 @@ const DialogDescription = React.forwardRef(({ className, ...props }, ref) => (
 DialogDescription.displayName = DialogPrimitive.Description.displayName
 
 export {
-  Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogOverlay, DialogPortal, DialogTitle, DialogTrigger
+  Dialog,
+  DialogPortal,
+  DialogOverlay,
+  DialogClose,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogFooter,
+  DialogTitle,
+  DialogDescription,
 }

@@ -1,46 +1,47 @@
- 
-import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { useNavigate } from 'react-router-dom'
 
- 
+
 const Login = () => {
-  return (
-    <div className="h-full w-full flex justify-center items-center">
+    const move=useNavigate();
+    const handleDashboard=()=>{
+        move('/admin/dashboard')
+    }
+    return (
+        <div className='
+        h-full w-full flex justify-center items-center'>
+            <Card className="w-1/4">
+                <CardHeader className="space-y-1">
+                    <CardTitle className="text-2xl">Login</CardTitle>
+                    <CardDescription>
+                        Enter your email below to login
+                    </CardDescription>
+                </CardHeader>
+                <CardContent className="grid gap-4">
+                    <div className="relative">
+                        <div className="absolute inset-0 flex items-center">
+                            <span className="w-full border-t" />
+                        </div>
+                    </div>
+                    <div className="grid gap-2">
+                        <Label htmlFor="email">Email</Label>
+                        <Input id="email" type="email" placeholder="user@Koshkii" />
+                    </div>
+                    <div className="grid gap-2">
+                        <Label htmlFor="password">Password</Label>
+                        <Input id="password" type="password" placeholder="******" />
+                    </div>
+                </CardContent>
+                <CardFooter>
+                    <Button className="w-full" onClick={handleDashboard}>Login</Button>
+                </CardFooter>
+            </Card>
 
-       <Card className="w-[350px]">
-      <CardHeader>
-        <CardTitle>Login</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <form>
-          <div className="grid w-full items-center gap-4">
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="name">Username</Label>
-              <Input id="name" placeholder="Enter username" />
-            </div>
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="framework">Password</Label>
-              <Input id="password" placeholder="Enter password" />
-
-            </div>
-          </div>
-        </form>
-      </CardContent>
-      <CardFooter className="flex justify-between">
-        {/* <Button variant="outline">Cancel</Button> */}
-        <Button>Login</Button>
-      </CardFooter>
-    </Card>
-    </div>
-  )
+        </div>
+    )
 }
 
 export default Login
