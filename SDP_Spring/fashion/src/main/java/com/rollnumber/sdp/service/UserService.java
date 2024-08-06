@@ -11,19 +11,26 @@ import com.rollnumber.sdp.repo.UserRepo;
 @Service
 public class UserService {
     @Autowired
-    private UserRepo urepo;
+    private UserRepo userRepository;
 
     public List<Users> getUsers() {
-        return urepo.findAll();
-        // urepo.findAll() -> select * from Users;
+        return userRepository.findAll();
     }
 
     public Users addUsers(Users user) {
-        return urepo.save(user);
+        return userRepository.save(user);
     }
 
     public String deleteUser(Long uid) {
-        urepo.deleteById(uid);
-        return "User Deleted " + uid;
+        userRepository.deleteById(uid);
+        return "User deleted with id: " + uid;
+    }
+
+    public Users loginUser(String username, String password) {
+        Users user = userRepository.findByUsername(username);
+        if (user != null && user.getPassword().equals(password)) {
+            return user;
+        }
+        return null;
     }
 }

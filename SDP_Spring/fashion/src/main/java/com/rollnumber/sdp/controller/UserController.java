@@ -1,4 +1,5 @@
 package com.rollnumber.sdp.controller;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,21 +13,30 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.rollnumber.sdp.model.Users;
 import com.rollnumber.sdp.service.UserService;
-@RestController()
+
+@RestController
 @RequestMapping("/users")
 public class UserController {
     @Autowired
     private UserService uservice;
+
     @GetMapping("/getusers")
-    public List<Users> GetUsers() {
+    public List<Users> getUsers() {
         return uservice.getUsers();
     }
+
     @PostMapping("/register")
-    public Users AddUsers(@RequestBody Users user) {
+    public Users addUsers(@RequestBody Users user) {
         return uservice.addUsers(user);
     }
+
     @DeleteMapping("/delete/{uid}")
-    public String DeleteUser(@PathVariable Long uid) {
+    public String deleteUser(@PathVariable Long uid) {
         return uservice.deleteUser(uid);
+    }
+
+    @PostMapping("/login")
+    public Users loginUser(@RequestBody Users user) {
+        return uservice.loginUser(user.getUsername(), user.getPassword());
     }
 }
