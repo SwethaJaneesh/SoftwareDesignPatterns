@@ -1,5 +1,0 @@
-# Created at 2024-08-05T22:31:52.855
-Boot Manifest-JAR contains absolute paths in classpath 'D:\Github\SoftwareDesignPatterns\Software-Design-Pattern-main\Software-Design-Pattern-main\Day-11\Spring-Security-Template-V4-main\target\test-classes'
-Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
-'other' has different root
-
